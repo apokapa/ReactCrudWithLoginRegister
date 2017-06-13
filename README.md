@@ -6,7 +6,7 @@ Adding new features to MyFirstReactApp...
 ## Azure Deployment 
 (if it wasnt used recently may take a while for first load since it is deployed on a free azure app plan)
 
-TBA
+http://reactcrudpro.azurewebsites.net/
 
 ## What you will find here
 
