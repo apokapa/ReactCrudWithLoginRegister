@@ -38,8 +38,8 @@ class RegisterPage extends React.Component {
   //Bind confirmPassword value changes
   onChangeConfirmPassword(event) {
 
-    this.state.confirmPassword= event.target.value;
-    this.setState({confirmPassword:confirmPassword});
+    let confirmPassword = event.target.value;
+    this.setState({ confirmPassword : confirmPassword });
 
   }
 
