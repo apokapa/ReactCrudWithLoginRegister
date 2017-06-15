@@ -131,15 +131,17 @@ class mockApi {
 
 //Account
 
-  //Login
+   //Login
   static loginUser(user){
       return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (users.length > 0 && users.find(_user => _user.username === user.username && _user.password=== user.password)) {
+
+
+        if (users.length > 0 && users.find(_user => _user.username.toLowerCase() === user.username.toLowerCase() && _user.password.toLowerCase() === user.password.toLowerCase() )) {
           resolve();
         }
         else{
-          reject(`Wrong username or password :(`);
+          reject(`Wrong username or passwosdsrd :(`);
         }
         resolve();
       }, delay);    
