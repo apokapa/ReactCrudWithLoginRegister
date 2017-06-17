@@ -7,6 +7,8 @@ export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS'; //Creat product 
 export const UPDATE_PRODUCT_SUCCESS = 'UPDATE_PRODUCT_SUCCESS'; //Update product success action
 export const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS'; //Delete product success action
 
+export const LOAD_CATEGORIES_SUCCESS = 'LOAD_CATEGORIES_SUCCESS';
+
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'; //Login user success action
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'; //Register user success action
 export const LOGOUT_USER = 'LOGOUT_USER'; //Logout user success action

@@ -9,27 +9,44 @@ const products = [
   {
     Id: 4567,
     Name: "Product 1",
+    Category: "GPU",
     Price: 2338
   },
   {
     Id: 4568,
     Name: "Product 2",
+    Category: "GPU",
     Price: 2611
   },
   {
     Id: 4569,
     Name: "Product 3",
+    Category: "MOBO",
     Price: 1233
   },
   {
     Id: 4667,
     Name: "Product 4",
+    Category: "GPU",
     Price: 3433
   },
   {
     Id: 4767,
     Name: "Product 5",
+    Category: "MOBO",
     Price: 3444
+  }
+];
+
+//Fake categories
+const categories = [
+  {
+    Code: "GPU",
+    Name: "Graphic cards"
+  },
+  {
+    Code: "MOBO",
+    Name: "Motherboards"
   }
 ];
 
@@ -130,6 +147,18 @@ class mockApi {
       }, 0);
     });
   }
+
+//Categories
+
+  //Get all categories
+  static getAllCategories() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], categories));
+      }, delay);
+    });
+  }
+
 
 //Account
 

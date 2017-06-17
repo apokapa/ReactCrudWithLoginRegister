@@ -18,6 +18,23 @@ export function deleteProductSuccess(productId) {
     return {type: types.DELETE_PRODUCT_SUCCESS, productId};
 }
 
+export function loadCategoriesSuccess(categories) {
+  return {type: types.LOAD_CATEGORIES_SUCCESS, categories};
+}
+
+//Load Categories
+export function loadCategories() {
+  return dispatch => {
+    dispatch(beginAjaxCall());
+    return mockApi.getAllCategories().then(categories => {
+      dispatch(loadCategoriesSuccess(categories));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+
 //Load products
 export function loadProducts() {
   return function(dispatch) {

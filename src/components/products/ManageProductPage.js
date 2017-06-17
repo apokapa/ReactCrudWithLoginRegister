@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {categoriesFormattedForDropdown} from '../../selectors/selectors';
 import * as productsActions from '../../actions/productsActions';
 import ProductForm from './ProductForm';
 import toastr from 'toastr';
@@ -92,6 +93,7 @@ export class ManageProductPage extends React.Component {
              product={this.state.product}
              errors={this.state.errors}
              saving={this.state.saving}
+             categories={this.props.categories}
       />
     );
   }
@@ -100,6 +102,7 @@ export class ManageProductPage extends React.Component {
 //Page props
 ManageProductPage.propTypes = {
   product: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -118,14 +121,15 @@ function getProductById(products, Id) {
 function mapStateToProps(state, ownProps) {
   const productId = ownProps.params.Id; // from the path `/product/:Id`
 
-  let product = {Id: '', Name: '', Price: ''};
+  let product = {Id: '', Name: '',Category:'', Price: ''};
 
   if (productId && state.products.length > 0) {
     product = getProductById(state.products, productId);
   }
 
   return {
-    product: product
+    product: product,
+    categories: categoriesFormattedForDropdown(state.categories)
   };
 }
 

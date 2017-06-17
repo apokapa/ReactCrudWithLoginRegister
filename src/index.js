@@ -8,13 +8,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
 import { Router, browserHistory ,Route, IndexRoute } from 'react-router';
 import App from './components/App';
-import {loadProducts} from './actions/productsActions';
+import {loadProducts,loadCategories} from './actions/productsActions';
 import configureStore from './store/configureStore';
 import HomePage from './components/home/HomePage';
 import ProductsPage from './components/products/ProductsPage';
 import ManageProductPage from './components/products/ManageProductPage'; //eslint-disable-line import/no-named-as-default
 import LoginPage from './components/account/LoginPage'; //eslint-disable-line import/no-named-as-default
-import RegisterPage from './components/account/RegisterPage'; 
+import RegisterPage from './components/account/RegisterPage';
 import toastr from 'toastr';
 
 //configure store
@@ -22,11 +22,13 @@ const store = configureStore();
 
 //Preload products from api
 store.dispatch(loadProducts());
+//Preload categories from api
+store.dispatch(loadCategories());
 
 //Check loginstatus for routing
-//ToDo: implement 0Auth 
+//ToDo: implement 0Auth
 function checkLoginStatus(nextState, replaceState) {
-  
+
     const loggedIn = store.getState().account
     if (!loggedIn) {
       if (nextState.location.state && nextState.location.pathname) {
@@ -50,7 +52,7 @@ render(
           <Route path="/products" component={ProductsPage} />
           <Route path="/product" component={ManageProductPage} />
           <Route path="/product/:Id" component={ManageProductPage} />
-        </Route>   
+        </Route>
     </Route>
     </Router>
   </Provider>,

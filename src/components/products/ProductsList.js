@@ -10,6 +10,7 @@ const ProductsList = ({products,deleteProduct}) => {
       <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Category</th>
         <th>Price</th>
         <th></th>
         <th></th>

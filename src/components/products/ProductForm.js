@@ -1,9 +1,10 @@
 import React from 'react';
 import TextInput from '../common/TextInput';
 import NumericInput from '../common/NumericInput';
+import DropdownInput from '../common/DropdownInput';
 
 //Presentaion component....
-const ProductForm = ({product, onSave, onChange, saving, errors}) => {
+const ProductForm = ({product, onSave, onChange, saving, errors,categories}) => {
   return (
     <div className="col-sm-8 col-sm-push-2">
     <form>
@@ -17,7 +18,15 @@ const ProductForm = ({product, onSave, onChange, saving, errors}) => {
         onChange={onChange}
         error={errors.Name}
         placeholder="e.g Television (5 characters minimum)"
+      />
 
+      <DropdownInput
+        name="Category"
+        label="Category"
+        value={product.Category}
+        defaultOption="Select Category"
+        options={categories}
+        onChange={onChange} error={errors.Category}
       />
 
       <NumericInput
