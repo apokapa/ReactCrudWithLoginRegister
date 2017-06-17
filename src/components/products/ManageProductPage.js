@@ -77,7 +77,9 @@ export class ManageProductPage extends React.Component {
   //Redirect to products page after succesfull save
   redirect() {
     this.setState({saving: false});
+    console.log(this.state.product)
     toastr.info('Product saved!');
+
     this.context.router.push('/products');
   }
 

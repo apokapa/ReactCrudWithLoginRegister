@@ -8,7 +8,7 @@ const ProductsListRow = ({product, deleteProduct}) => {
     <tr>
       <td>{product.Id}</td>
       <td>{product.Name}</td>
-      <td>($) {product.Price}</td>
+      <td>{product.Price.toLocaleString('el-GR', { style: 'currency', currency: 'EUR' })}</td>
       <td><Link to={'/product/' + product.Id} className="btn btn-block btn-primary">Edit</Link></td>
       <td><DeleteProduct
                 deleteFunction={deleteProduct}

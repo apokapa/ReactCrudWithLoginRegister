@@ -19,6 +19,9 @@ const NumericInput = ({name, label, onChange, placeholder, value, error}) => {
           name={name}
           className="form-control"
           placeholder={placeholder}
+          pattern="^\d+(?:\.\d{1,2})?$"
+          step="0.01"
+          min="0"
           value={value}
           onChange={onChange}/>
         {error && <div className="alert alert-danger">{error}</div>}

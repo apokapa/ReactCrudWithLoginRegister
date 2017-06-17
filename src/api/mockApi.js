@@ -9,27 +9,27 @@ const products = [
   {
     Id: 4567,
     Name: "Product 1",
-    Price: 231
+    Price: 2338
   },
   {
     Id: 4568,
     Name: "Product 2",
-    Price: 261
+    Price: 2611
   },
   {
     Id: 4569,
     Name: "Product 3",
-    Price: 233
+    Price: 1233
   },
   {
     Id: 4667,
     Name: "Product 4",
-    Price: 343
+    Price: 3433
   },
   {
     Id: 4767,
     Name: "Product 5",
-    Price: 344
+    Price: 3444
   }
 ];
 
@@ -58,7 +58,7 @@ const users = [
 //Mimic DB Auto-Incremen
 //Returns the max product id+1 If there is no products at all resets to 1.
 const generateNumberId= (products) => {
-    
+
    if (products.length >0) {
         var Id = products.sort(function(product1, product2){
         return product1.Id < product2.Id;})[0].Id;
@@ -74,7 +74,7 @@ class mockApi {
 
 //Products
 
-  //Get all products with delay  
+  //Get all products with delay
   static getAllProducts() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -85,8 +85,9 @@ class mockApi {
 
   //Save a product without violating immutability
   static saveProduct(product) {
+    product.Price = parseFloat(product.Price);
     product = Object.assign({}, product); // Comply with Immutability
-    
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //Some Server-side validation
@@ -94,9 +95,10 @@ class mockApi {
           reject(`Name must be at least 5 characters.`);
         }
 
-        if (product.Price < 0 || product.Price==='') {
+        if (product.Price < 0 || product.Price.toString() ==='') {
           reject(`You must fill a positive price`);
         }
+
 
         if (product.Id) {
           const existingProductIndex = products.findIndex(a => a.id == product.id);
@@ -121,7 +123,7 @@ class mockApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfProductToDelete = products.findIndex(product => {
-          product.Id == productId; 
+          product.Id == productId;
         });
         products.splice(indexOfProductToDelete, 1);
         resolve();
@@ -144,14 +146,14 @@ class mockApi {
           reject(`Wrong username or passwosdsrd :(`);
         }
         resolve();
-      }, delay);    
-      });  
+      }, delay);
+      });
     }
-  
+
   //Register
   static registerUser(user) {
     user = Object.assign({}, user); // Comply with Immutability
-    
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //Some Server-side validation
@@ -162,7 +164,7 @@ class mockApi {
         if (user.password.length < 4) {
           reject(`Password must be at least 4 characters.`);
         }
-        
+
         const existingUserIndex = users.findIndex(a => a.username == user.username);
         console.log(existingUserIndex);
 
@@ -177,7 +179,7 @@ class mockApi {
     });
 
   }
-  
+
 
 }
 

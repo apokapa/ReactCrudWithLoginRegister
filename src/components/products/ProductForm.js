@@ -17,12 +17,12 @@ const ProductForm = ({product, onSave, onChange, saving, errors}) => {
         onChange={onChange}
         error={errors.Name}
         placeholder="e.g Television (5 characters minimum)"
-     
+
       />
 
       <NumericInput
         name="Price"
-        label="($) Price"
+        label="Price (€)"
         value={product.Price}
         onChange={onChange}
         error={errors.Price}
