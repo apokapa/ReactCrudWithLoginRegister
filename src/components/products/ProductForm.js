@@ -21,12 +21,12 @@ const ProductForm = ({product, onSave, onChange, saving, errors,categories}) => 
       />
 
       <DropdownInput
-        name="Category"
-        label="Category"
-        value={product.Category}
+        name="CategoryId"
+        label="CategoryId"
+        value={product.CategoryId}
         defaultOption="Select Category"
         options={categories}
-        onChange={onChange} error={errors.Category}
+        onChange={onChange} error={errors.CategoryId}
       />
 
       <NumericInput

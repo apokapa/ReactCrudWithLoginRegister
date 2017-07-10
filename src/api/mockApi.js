@@ -5,47 +5,16 @@
 const delay=500;
 
 //Fake products
-const products = [
-  {
-    Id: 4567,
-    Name: "Product 1",
-    Category: "GPU",
-    Price: 2338
-  },
-  {
-    Id: 4568,
-    Name: "Product 2",
-    Category: "GPU",
-    Price: 2611
-  },
-  {
-    Id: 4569,
-    Name: "Product 3",
-    Category: "MOBO",
-    Price: 1233
-  },
-  {
-    Id: 4667,
-    Name: "Product 4",
-    Category: "GPU",
-    Price: 3433
-  },
-  {
-    Id: 4767,
-    Name: "Product 5",
-    Category: "MOBO",
-    Price: 3444
-  }
-];
+const products = [];
 
 //Fake categories
 const categories = [
   {
-    Code: "GPU",
+    Id: 1,
     Name: "Graphic cards"
   },
   {
-    Code: "MOBO",
+    Id: 2,
     Name: "Motherboards"
   }
 ];
@@ -69,6 +38,7 @@ const users = [
     password: "morty"
   }
 ];
+
 
 //This would be performed on the server in a real app. Just stubbing in.
 
@@ -166,7 +136,6 @@ class mockApi {
   static loginUser(user){
       return new Promise((resolve, reject) => {
       setTimeout(() => {
-
 
         if (users.length > 0 && users.find(_user => _user.username.toLowerCase() === user.username.toLowerCase() && _user.password.toLowerCase() === user.password.toLowerCase() )) {
           resolve();

@@ -1,6 +1,9 @@
 import * as types from './actionTypes';
 import mockApi from '../api/mockApi';
+import realApi from '../api/realApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
+
+
 
 export function loadProductsSuccess(products) {
   return { type: types.LOAD_PRODUCTS_SUCCESS, products};
@@ -39,7 +42,7 @@ export function loadCategories() {
 export function loadProducts() {
   return function(dispatch) {
     dispatch(beginAjaxCall());
-    return mockApi.getAllProducts().then(products => {
+    return realApi.getAllProducts().then(products => {
       dispatch(loadProductsSuccess(products));
     }).catch(error => {
       throw(error);
@@ -51,7 +54,7 @@ export function loadProducts() {
 export function deleteProduct(productId) {
     return function (dispatch) {
         dispatch(beginAjaxCall());
-        return mockApi.deleteProduct(productId).then(() => {
+        return realApi.deleteProduct(productId).then(() => {
             dispatch(deleteProductSuccess(productId));
         }).catch((error) => {
             dispatch(ajaxCallError(error));
@@ -64,7 +67,7 @@ export function deleteProduct(productId) {
 export function saveProduct(product) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
-    return mockApi.saveProduct(product).then(product => {
+    return realApi.saveProduct(product).then(product => {
       product.Id ? dispatch(updateProductSuccess(product)) :
         dispatch(createProductSuccess(product));
     }).catch(error => {

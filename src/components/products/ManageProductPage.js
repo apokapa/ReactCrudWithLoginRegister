@@ -121,7 +121,7 @@ function getProductById(products, Id) {
 function mapStateToProps(state, ownProps) {
   const productId = ownProps.params.Id; // from the path `/product/:Id`
 
-  let product = {Id: '', Name: '',Category:'', Price: ''};
+  let product = {Id: '', Name: '',CategoryId:'', Price: ''};
 
   if (productId && state.products.length > 0) {
     product = getProductById(state.products, productId);

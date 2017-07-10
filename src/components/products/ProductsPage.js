@@ -9,11 +9,17 @@ import toastr from 'toastr';
 //Parent component of list,row
 //Products list page
 class ProductsPage extends React.Component {
+
   constructor(props, context) {
     super(props, context);
     this.redirectToAddProductsPage = this.redirectToAddProductsPage.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
+    
+ 
   }
+
+    //Initial local state
+   
 
   //add product page
   redirectToAddProductsPage() {
@@ -23,12 +29,17 @@ class ProductsPage extends React.Component {
   //Delete product action dispatcher , passed down as prop to deleteProduct button
   deleteProduct(product) {
 
+
+
         this.props.actions.deleteProduct(product.Id)
-        .then(
+        .then(() =>{
           toastr.warning('Product Deleted!')
+ 
+        }
         )
         .catch(error => {
-        toastr.info(error)
+            toastr.info(error)
+
         }); 
   }
 

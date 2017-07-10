@@ -9,6 +9,8 @@ class DeleteProduct extends React.Component {
         super(props, context);
 
         this.delete = this.delete.bind(this);
+
+
     }
     
     delete(event) {
@@ -18,7 +20,14 @@ class DeleteProduct extends React.Component {
 
     render() {
         return (
-            <a href="#"  className="btn btn-block btn-danger" onClick={this.delete}>Delete</a>
+         
+        <input
+          type="submit"
+          className="btn btn-block btn-danger"
+          value={'Delete'}
+          onClick={this.delete}
+        />
+
         );
     }
 }
